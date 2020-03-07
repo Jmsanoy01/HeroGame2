@@ -1,0 +1,2 @@
+rootProject.name='HeroGame2'
+include ':app'

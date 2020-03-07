@@ -1,0 +1,377 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:background="#000000"
+    android:fitsSystemWindows="true">
+
+    <ImageView
+        android:id="@+id/juggernaut"
+        android:layout_width="300dp"
+        android:layout_height="350dp"
+        android:layout_marginTop="24dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/juggernaut" />
+
+    <ImageView
+        android:id="@+id/jugg_icon"
+        android:layout_width="75dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="48dp"
+        app:layout_constraintStart_toStartOf="@+id/healthBar"
+        app:layout_constraintTop_toBottomOf="@+id/juggernaut"
+        app:srcCompat="@drawable/juggernaut_icon" />
+
+    <TextView
+        android:id="@+id/heroName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="6dp"
+        android:layout_marginTop="42dp"
+        android:fontFamily="@font/hypatia_bold"
+        android:text="HERO NAME"
+        android:textColor="#FFFFFF"
+        android:textSize="32dp"
+        app:layout_constraintStart_toEndOf="@+id/jugg_icon"
+        app:layout_constraintTop_toBottomOf="@+id/juggernaut"
+        android:textAllCaps="true"/>
+
+    <TextView
+        android:id="@+id/attackDamageLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:fontFamily="@font/hypatia_semibold"
+        android:text="Attack Damage:"
+        android:textColor="#919191"
+        android:textSize="18dp"
+        app:layout_constraintStart_toStartOf="@+id/manaBar"
+        app:layout_constraintTop_toBottomOf="@+id/iconStr" />
+
+    <TextView
+        android:id="@+id/spellDamageLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:fontFamily="@font/hypatia_semibold"
+        android:text="Spell Damage Amplification:"
+        android:textColor="#919191"
+        android:textSize="18dp"
+        app:layout_constraintStart_toStartOf="@+id/attackDamageLabel"
+        app:layout_constraintTop_toBottomOf="@+id/attackDamageLabel" />
+
+    <TextView
+        android:id="@+id/attackDamageMax"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/hypatia_semibold"
+        android:text="0"
+        android:textColor="@android:color/white"
+        android:textSize="18dp"
+        app:layout_constraintBottom_toBottomOf="@+id/attackDamageLabel"
+        app:layout_constraintEnd_toEndOf="@+id/manaBar"
+        app:layout_constraintTop_toTopOf="@+id/attackDamageLabel" />
+
+    <TextView
+        android:id="@+id/attackDamageMin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="3dp"
+        android:fontFamily="@font/hypatia_semibold"
+        android:text="0"
+        android:textColor="@android:color/white"
+        android:textSize="18dp"
+        app:layout_constraintBottom_toBottomOf="@+id/attackDamageLabel"
+        app:layout_constraintEnd_toStartOf="@+id/attackDamageDash"
+        app:layout_constraintTop_toTopOf="@+id/attackDamageLabel"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/attackDamageDash"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="3dp"
+        android:fontFamily="@font/hypatia_semibold"
+        android:text="-"
+        android:textColor="@android:color/white"
+        android:textSize="18dp"
+        app:layout_constraintBottom_toBottomOf="@+id/attackDamageLabel"
+        app:layout_constraintEnd_toStartOf="@+id/attackDamageMax"
+        app:layout_constraintTop_toTopOf="@+id/attackDamageLabel"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/spellDamagePercent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/hypatia_semibold"
+        android:text="%"
+        android:textColor="@android:color/white"
+        android:textSize="18dp"
+        app:layout_constraintBottom_toBottomOf="@+id/spellDamageLabel"
+        app:layout_constraintEnd_toEndOf="@+id/manaBar"
+        app:layout_constraintTop_toTopOf="@+id/spellDamageLabel" />
+
+    <TextView
+        android:id="@+id/spellDamage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/hypatia_semibold"
+        android:text="0"
+        android:textColor="@android:color/white"
+        android:textSize="18dp"
+        app:layout_constraintBottom_toBottomOf="@+id/spellDamageLabel"
+        app:layout_constraintEnd_toEndOf="@+id/manaBar"
+        app:layout_constraintEnd_toStartOf="@+id/spellDamagePercent"
+        app:layout_constraintTop_toTopOf="@+id/spellDamageLabel"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/strength"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:fontFamily="@font/hypatia_regular"
+        android:text="20"
+        android:textColor="#FFFFFF"
+        android:textSize="24dp"
+        app:layout_constraintBottom_toBottomOf="@+id/iconStr"
+        app:layout_constraintStart_toEndOf="@+id/iconStr"
+        app:layout_constraintTop_toTopOf="@+id/iconStr" />
+
+    <TextView
+        android:id="@+id/agility"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="2dp"
+        android:layout_marginEnd="45dp"
+        android:fontFamily="@font/hypatia_regular"
+        android:text="34"
+        android:textColor="#FFFFFF"
+        android:textSize="24dp"
+        app:layout_constraintBottom_toBottomOf="@+id/iconAgi"
+        app:layout_constraintEnd_toStartOf="@+id/imageView9"
+        app:layout_constraintTop_toTopOf="@+id/iconAgi" />
+
+    <TextView
+        android:id="@+id/intelligence"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="12dp"
+        android:fontFamily="@font/hypatia_regular"
+        android:text="14"
+        android:textColor="#FFFFFF"
+        android:textSize="24dp"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView9"
+        app:layout_constraintEnd_toEndOf="@+id/manaBar"
+        app:layout_constraintTop_toTopOf="@+id/imageView9" />
+
+    <TextView
+        android:id="@+id/heroIDLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/hypatia_bold"
+        android:text="ID# "
+        android:textColor="#FFFFFF"
+        android:textSize="8dp"
+        app:layout_constraintEnd_toStartOf="@+id/heroID"
+        app:layout_constraintTop_toBottomOf="@+id/heroName" />
+
+    <TextView
+        android:id="@+id/heroClass"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/hypatia_bold"
+        android:text="CLASS"
+        android:textColor="#FFFFFF"
+        android:textSize="8dp"
+        app:layout_constraintStart_toStartOf="@+id/heroName"
+        app:layout_constraintTop_toBottomOf="@+id/heroName" />
+
+    <TextView
+        android:id="@+id/heroID"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/hypatia_bold"
+        android:text="12345678"
+        android:textColor="#FFFFFF"
+        android:textSize="8dp"
+        app:layout_constraintEnd_toEndOf="@+id/heroName"
+        app:layout_constraintTop_toBottomOf="@+id/heroName" />
+
+    <TextView
+        android:id="@+id/heroLevelLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/trajan"
+        android:text="LV. "
+        android:textColor="#FFFFFF"
+        android:textSize="16dp"
+        app:layout_constraintBottom_toTopOf="@+id/jugg_icon"
+        app:layout_constraintStart_toStartOf="@+id/jugg_icon" />
+
+    <TextView
+        android:id="@+id/heroLevelCheck"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/hypatia_semibold"
+        android:text="✓"
+        android:textColor="#FFFFFF"
+        android:textSize="16dp"
+        app:layout_constraintBottom_toTopOf="@+id/jugg_icon"
+        app:layout_constraintEnd_toEndOf="@+id/jugg_icon" />
+
+    <EditText
+        android:id="@+id/heroLevel"
+        android:layout_width="24dp"
+        android:layout_height="wrap_content"
+        android:background="@android:color/transparent"
+        android:ems="10"
+        android:fontFamily="@font/trajan"
+        android:inputType="number"
+        android:text="1"
+        android:textColor="@android:color/white"
+        android:textSize="16dp"
+        app:layout_constraintBottom_toTopOf="@+id/jugg_icon"
+        app:layout_constraintStart_toEndOf="@+id/heroLevelLabel"
+        app:layout_constraintTop_toTopOf="@+id/heroLevelLabel"
+        android:cursorVisible="false"/>
+
+    <ImageView
+        android:id="@+id/healthBar"
+        android:layout_width="0dp"
+        android:layout_height="18dp"
+        android:layout_marginTop="24dp"
+        app:layout_constraintEnd_toEndOf="@+id/juggernaut"
+        app:layout_constraintStart_toStartOf="@+id/juggernaut"
+        app:layout_constraintTop_toBottomOf="@+id/jugg_icon"
+        app:srcCompat="@drawable/hp_gradient" />
+
+    <ImageView
+        android:id="@+id/manaBar"
+        android:layout_width="0dp"
+        android:layout_height="18dp"
+        app:layout_constraintEnd_toEndOf="@+id/healthBar"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/healthBar"
+        app:layout_constraintTop_toBottomOf="@+id/healthBar"
+        app:srcCompat="@drawable/mn_gradient" />
+
+    <TextView
+        android:id="@+id/barSlashHP"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/hypatia_bold"
+        android:text="/"
+        android:textColor="#FFFFFF"
+        android:textSize="12dp"
+        app:layout_constraintBottom_toBottomOf="@+id/healthBar"
+        app:layout_constraintEnd_toEndOf="@+id/healthBar"
+        app:layout_constraintStart_toStartOf="@+id/healthBar"
+        app:layout_constraintTop_toTopOf="@+id/healthBar" />
+
+    <TextView
+        android:id="@+id/health1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="6dp"
+        android:fontFamily="@font/hypatia_bold"
+        android:text="600"
+        android:textColor="#FFFFFF"
+        android:textSize="12dp"
+        app:layout_constraintBottom_toBottomOf="@+id/healthBar"
+        app:layout_constraintEnd_toEndOf="@+id/healthBar"
+        app:layout_constraintEnd_toStartOf="@+id/barSlashHP"
+        app:layout_constraintTop_toTopOf="@+id/healthBar" />
+
+    <TextView
+        android:id="@+id/mana1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="6dp"
+        android:fontFamily="@font/hypatia_bold"
+        android:text="243"
+        android:textColor="#FFFFFF"
+        android:textSize="12dp"
+        app:layout_constraintBottom_toBottomOf="@+id/manaBar"
+        app:layout_constraintEnd_toEndOf="@+id/healthBar"
+        app:layout_constraintEnd_toStartOf="@+id/barSlashHP"
+        app:layout_constraintTop_toTopOf="@+id/manaBar" />
+
+    <TextView
+        android:id="@+id/mana2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="6dp"
+        android:fontFamily="@font/hypatia_bold"
+        android:text="243"
+        android:textColor="#FFFFFF"
+        android:textSize="12dp"
+        app:layout_constraintBottom_toBottomOf="@+id/manaBar"
+        app:layout_constraintStart_toEndOf="@+id/barSlashMP"
+        app:layout_constraintTop_toTopOf="@+id/manaBar" />
+
+    <TextView
+        android:id="@+id/health2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="6dp"
+        android:fontFamily="@font/hypatia_bold"
+        android:text="600"
+        android:textColor="#FFFFFF"
+        android:textSize="12dp"
+        app:layout_constraintBottom_toBottomOf="@+id/healthBar"
+        app:layout_constraintStart_toEndOf="@+id/barSlashHP"
+        app:layout_constraintTop_toTopOf="@+id/healthBar" />
+
+    <TextView
+        android:id="@+id/barSlashMP"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/hypatia_bold"
+        android:text="/"
+        android:textColor="#FFFFFF"
+        android:textSize="12dp"
+        app:layout_constraintBottom_toBottomOf="@+id/manaBar"
+        app:layout_constraintEnd_toEndOf="@+id/healthBar"
+        app:layout_constraintStart_toStartOf="@+id/healthBar"
+        app:layout_constraintTop_toTopOf="@+id/manaBar" />
+
+    <ImageView
+        android:id="@+id/iconStr"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="24dp"
+        app:layout_constraintStart_toStartOf="@+id/manaBar"
+        app:layout_constraintTop_toBottomOf="@+id/manaBar"
+        app:srcCompat="@drawable/str_icon" />
+
+    <ImageView
+        android:id="@+id/iconAgi"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_marginStart="45dp"
+        android:layout_marginTop="24dp"
+        app:layout_constraintStart_toEndOf="@+id/strength"
+        app:layout_constraintTop_toBottomOf="@+id/mana1"
+        app:srcCompat="@drawable/agi_icon" />
+
+    <ImageView
+        android:id="@+id/imageView9"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="12dp"
+        app:layout_constraintEnd_toStartOf="@+id/intelligence"
+        app:layout_constraintTop_toBottomOf="@+id/manaBar"
+        app:srcCompat="@drawable/int_icon" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
